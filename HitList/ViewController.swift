@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
     private let cellId = "Cell"
     private let screenTitle = "\"The List\""
+    private let nameKey = "name"
 
     private var people = [NSManagedObject]()
 
@@ -78,7 +79,7 @@ class ViewController: UIViewController {
         }
 
         let person = NSManagedObject(entity: entity, insertInto:managedContext)
-        person.setValue(name, forKey: "name")
+        person.setValue(name, forKey: nameKey)
 
         do {
             try managedContext.save()
@@ -123,7 +124,7 @@ extension ViewController: UITableViewDataSource {
             fatalError()
         }
 
-        cell.textLabel!.text = people[indexPath.row].value(forKey: "name") as? String
+        cell.textLabel!.text = people[indexPath.row].value(forKey: nameKey) as? String
         return cell
     }
     
