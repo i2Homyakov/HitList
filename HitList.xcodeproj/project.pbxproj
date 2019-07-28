@@ -44,6 +44,7 @@
 		507F5EF522EDDAC7001F04DB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				50941F4122ECB067004A7396 /* HitList.xcdatamodeld */,
 				507F5EF622EDDAC7001F04DB /* Entities */,
 			);
 			path = CoreData;
@@ -84,7 +85,6 @@
 				50941F4422ECB06A004A7396 /* Assets.xcassets */,
 				50941F4622ECB06A004A7396 /* LaunchScreen.storyboard */,
 				50941F4922ECB06A004A7396 /* Info.plist */,
-				50941F4122ECB067004A7396 /* HitList.xcdatamodeld */,
 			);
 			path = HitList;
 			sourceTree = "<group>";

@@ -19,7 +19,6 @@ class ViewController: UIViewController {
 
     private let cellId = "Cell"
     private let screenTitle = "\"The List\""
-    private let nameKey = "name"
 
     private var people = [Person]()
 
@@ -120,7 +119,7 @@ class ViewController: UIViewController {
         }
 
         let person = Person(entity: entity, insertInto: managedContext)
-        person.setValue(name, forKey: nameKey)
+        person.name = name
 
         do {
             try managedContext.save()
@@ -165,7 +164,7 @@ extension ViewController: UITableViewDataSource {
             fatalError()
         }
 
-        cell.textLabel!.text = people[indexPath.row].value(forKey: nameKey) as? String
+        cell.textLabel!.text = people[indexPath.row].name
         return cell
     }
     
