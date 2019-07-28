@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		507F5EFD22EDDAF8001F04DB /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F5EFB22EDDAF8001F04DB /* Person+CoreDataClass.swift */; };
+		507F5EFE22EDDAF8001F04DB /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F5EFC22EDDAF8001F04DB /* Person+CoreDataProperties.swift */; };
 		50941F3B22ECB067004A7396 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50941F3A22ECB067004A7396 /* AppDelegate.swift */; };
 		50941F3D22ECB067004A7396 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50941F3C22ECB067004A7396 /* ViewController.swift */; };
 		50941F4022ECB067004A7396 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50941F3E22ECB067004A7396 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		507F5EFB22EDDAF8001F04DB /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		507F5EFC22EDDAF8001F04DB /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		50941F3722ECB067004A7396 /* HitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50941F3A22ECB067004A7396 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50941F3C22ECB067004A7396 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		507F5EF522EDDAC7001F04DB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				507F5EF622EDDAC7001F04DB /* Entities */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		507F5EF622EDDAC7001F04DB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				507F5EFB22EDDAF8001F04DB /* Person+CoreDataClass.swift */,
+				507F5EFC22EDDAF8001F04DB /* Person+CoreDataProperties.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		50941F2E22ECB067004A7396 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +77,7 @@
 		50941F3922ECB067004A7396 /* HitList */ = {
 			isa = PBXGroup;
 			children = (
+				507F5EF522EDDAC7001F04DB /* CoreData */,
 				50941F3A22ECB067004A7396 /* AppDelegate.swift */,
 				50941F3C22ECB067004A7396 /* ViewController.swift */,
 				50941F3E22ECB067004A7396 /* Main.storyboard */,
@@ -138,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507F5EFD22EDDAF8001F04DB /* Person+CoreDataClass.swift in Sources */,
+				507F5EFE22EDDAF8001F04DB /* Person+CoreDataProperties.swift in Sources */,
 				50941F4322ECB067004A7396 /* HitList.xcdatamodeld in Sources */,
 				50941F3D22ECB067004A7396 /* ViewController.swift in Sources */,
 				50941F3B22ECB067004A7396 /* AppDelegate.swift in Sources */,

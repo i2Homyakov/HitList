@@ -21,12 +21,53 @@ class ViewController: UIViewController {
     private let screenTitle = "\"The List\""
     private let nameKey = "name"
 
-    private var people = [NSManagedObject]()
+    private var people = [Person]()
+
+    // FIXME: S
+    var persistentCoordinator: NSPersistentStoreCoordinator = {
+        let coreDataName = "HitList"
+        let modelURL = Bundle.main.url(forResource: coreDataName, withExtension: "momd")
+        let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
+        let persistentCoordinator = NSPersistentStoreCoordinator(managedObjectModel:
+            managedObjectModel!)
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                                .userDomainMask, true)[0]
+        let storeURL = URL(fileURLWithPath: documentsPath.appending("/\(coreDataName).sqlite"))
+        print("storeUrl = \(storeURL)")
+        do {
+            try persistentCoordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+                                                         configurationName: nil,
+                                                         at: storeURL,
+                                                         options: [NSSQLitePragmasOption:
+                                                            ["journal_mode":"MEMORY"]])
+            return persistentCoordinator
+        } catch {
+            abort()
+        }
+    }()
+
+    var persistentContainer: NSPersistentContainer = {
+        let coreDataName = "HitList"
+        let container = NSPersistentContainer(name: coreDataName)
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            print("storeDescription = \(storeDescription)")
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    } ()
+    // FIXME: E
 
     // MARK: - Life cicle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // FIXME: S
+        let persistentCoordinator = self.persistentCoordinator
+        let persistentContainer = self.persistentContainer
+        // FIXME: E
 
         title = screenTitle
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
@@ -78,7 +119,7 @@ class ViewController: UIViewController {
             fatalError()
         }
 
-        let person = NSManagedObject(entity: entity, insertInto:managedContext)
+        let person = Person(entity: entity, insertInto: managedContext)
         person.setValue(name, forKey: nameKey)
 
         do {
@@ -100,7 +141,7 @@ class ViewController: UIViewController {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Person")
         
         do {
-            guard let fetchedResults = try managedContext.fetch(fetchRequest) as? [NSManagedObject] else {
+            guard let fetchedResults = try managedContext.fetch(fetchRequest) as? [Person] else {
                 fatalError()
             }
             people = fetchedResults
