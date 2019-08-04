@@ -6,6 +6,13 @@
 //  Copyright © 2019 Max Zasov. All rights reserved.
 //
 
+/// Статьи на тему
+/* Статьи на тему
+ https://habr.com/ru/post/436510/
+ https://swiftbook.ru/post/tutorials/core-data-chast-1/
+ https://swiftbook.ru/post/tutorials/core-data-chast-2-lightweight-migracii/
+ */
+
 import UIKit
 import CoreData
 
